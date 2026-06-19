@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信息流中的体育数据站 – 米兰体育app</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(145deg, #fce6b4 0%, #fde3a7 25%, #fad980 55%, #f5cd6c 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 3rem 1.2rem;
+            line-height: 1.7;
+            letter-spacing: 0.012em;
+        }
+
+        .container {
+            max-width: 820px;
+            width: 100%;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 48px 48px 40px 40px;
+            box-shadow: 0 18px 36px -12px rgba(160, 100, 20, 0.28), 0 6px 14px rgba(0, 0, 0, 0.04);
+            padding: 2.8rem 3rem 3.2rem;
+            transition: box-shadow 0.2s;
+            border: 1px solid rgba(255, 215, 140, 0.3);
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.6rem 0.8rem;
+            }
+            .container {
+                padding: 2rem 1.5rem 2.4rem;
+                border-radius: 32px;
+            }
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: #f5e3c1;
+            color: #7a5f2e;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            margin-bottom: 1.2rem;
+            border: 1px solid #ebd09e;
+        }
+
+        h1 {
+            font-size: 2.1rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #2b2418;
+            margin-bottom: 0.7rem;
+            letter-spacing: -0.025em;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.7rem;
+            }
+        }
+
+        .lead {
+            font-size: 1.1rem;
+            color: #544b3a;
+            background: #faf1e2;
+            padding: 1.2rem 1.6rem;
+            border-radius: 24px;
+            margin: 1.4rem 0 2rem;
+            border-left: 6px solid #dbb176;
+            font-weight: 450;
+        }
+
+        .body-text {
+            color: #2f2a21;
+            font-size: 0.98rem;
+        }
+
+        .body-text p {
+            margin-bottom: 1.3rem;
+        }
+
+        .body-text strong {
+            color: #8a6a38;
+            font-weight: 600;
+        }
+
+        .quote-block {
+            background: #fcf6ec;
+            border-radius: 24px;
+            padding: 1.4rem 1.8rem;
+            margin: 1.8rem 0 1.8rem;
+            color: #4f422c;
+            font-style: italic;
+            border: 1px solid #e7d3b1;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+            font-size: 0.95rem;
+        }
+
+        .quote-block::before {
+            content: "“";
+            font-size: 2.4rem;
+            line-height: 0.8;
+            color: #c99f62;
+            font-weight: 700;
+            margin-right: 6px;
+            vertical-align: middle;
+        }
+
+        .quote-block::after {
+            content: "”";
+            font-size: 2.4rem;
+            line-height: 0.8;
+            color: #c99f62;
+            font-weight: 700;
+            margin-left: 4px;
+            vertical-align: bottom;
+        }
+
+        .insight-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 2rem 0 1.6rem;
+        }
+
+        .insight-card {
+            background: #fffbf4;
+            border-radius: 20px;
+            padding: 1rem 1.5rem 1.2rem;
+            flex: 1 1 180px;
+            border: 1px solid #eddabc;
+            transition: background 0.15s, border 0.15s;
+        }
+
+        .insight-card:hover {
+            background: #fcf3e3;
+            border-color: #cfb48a;
+        }
+
+        .insight-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #473d2b;
+            margin-bottom: 0.3rem;
+            letter-spacing: -0.01em;
+        }
+
+        .insight-card p {
+            font-size: 0.88rem;
+            color: #5f5541;
+            line-height: 1.5;
+        }
+
+        .faq-mini {
+            margin: 2.2rem 0 1.8rem;
+            background: #f7efe2;
+            border-radius: 28px;
+            padding: 0.8rem 1.8rem 1.6rem;
+        }
+
+        .faq-mini details {
+            border-bottom: 1px solid #e2d0b4;
+            padding: 0.7rem 0;
+        }
+
+        .faq-mini details:last-of-type {
+            border-bottom: none;
+        }
+
+        .faq-mini summary {
+            font-weight: 600;
+            color: #4b3f2b;
+            cursor: pointer;
+            font-size: 0.95rem;
+            padding: 0.2rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-mini summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-mini summary::before {
+            content: "+";
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: #dbb176;
+            color: white;
+            border-radius: 30px;
+            text-align: center;
+            line-height: 20px;
+            font-weight: 700;
+            margin-right: 12px;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+        }
+
+        .faq-mini details[open] summary::before {
+            content: "–";
+            background: #a07e4e;
+        }
+
+        .faq-mini .answer {
+            padding: 0.5rem 0 0.2rem 2rem;
+            color: #4f462f;
+            font-size: 0.9rem;
+        }
+
+        .access-note {
+            margin-top: 2.2rem;
+            border-top: 2px dashed #e7d3b1;
+            padding-top: 1.6rem;
+            font-size: 0.95rem;
+            color: #534b36;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.3rem 0.5rem;
+        }
+
+        .link-button {
+            display: inline-block;
+            background: #dbb176;
+            color: #2b2418;
+            padding: 0.25rem 1rem 0.25rem 1.2rem;
+            border-radius: 999px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+            border: 1px solid #c8a26a;
+            box-shadow: 0 2px 6px rgba(180, 120, 40, 0.12);
+            transition: background 0.15s, box-shadow 0.15s;
+            letter-spacing: 0.01em;
+            white-space: nowrap;
+        }
+
+        .link-button:hover {
+            background: #d0a25b;
+            box-shadow: 0 4px 12px rgba(170, 115, 30, 0.2);
+            border-color: #b78b4e;
+        }
+
+        .footer-meta {
+            margin-top: 2.5rem;
+            font-size: 0.75rem;
+            color: #9c8b6f;
+            text-align: right;
+            border-top: 1px solid #f0e3ce;
+            padding-top: 1.2rem;
+            letter-spacing: 0.3px;
+        }
+
+        .dot-divider {
+            color: #d4bd96;
+            margin: 0 6px;
+        }
+
+        @media (max-width: 480px) {
+            .access-note {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero-tag">📘 信息流 · 体育数据</div>
+        <h1>日常查询、对照与延伸阅读<br>围绕体育信息的一站式参考</h1>
+
+        <div class="lead">
+            从比赛数据到赛季走势，大量碎片信息需要筛选。这篇文章展示如何通过结构化的内容卡片和场景索引提高信息使用效率，并自然地引入<a href="https://milano-sports.com" class="link-button" style="margin-left: 8px; vertical-align: middle;">米兰体育app</a>作为延伸节点。
+        </div>
+
+        <div class="body-text">
+            <p>日常查询往往集中在几个固定维度：<strong>赛程时间、实时比分、球员统计、联赛积分榜</strong>。当数据源分散在不同页面或平台时，反复切换会打断阅读节奏。理想的做法是将高频信息整合在统一的界面中，并预留对照和索引的位置。一篇简洁的指南或参考页，可以同时承担“快速查找”和“背景延伸”的双重角色。</p>
+
+            <p>以近期欧洲篮球联赛为例，每轮十场比赛，涉及近百名球员的效率值、命中率、上场时间。如果只看汇总表格容易遗漏趋势，而逐场阅读战报又过于耗时。这时候一个带有<strong>上下文提示的卡片式摘要</strong>就能发挥作用：左侧陈列基础数据，右侧用一两句话描述关键转折点或异常值。这种对照结构让读者在几秒内建立全局印象，再决定是否深入查看具体战报或回放。</p>
+
+            <p>另一个常见场景是跨赛季对比。例如某支球队的主客场胜率差异、核心球员在背靠背比赛中的效率变化。单纯的数字罗列不够直观，配合<strong>迷你趋势标记</strong>（如小箭头、百分比色块）能显著提升可读性。这也是为什么很多体育内容平台开始采用“数据卡片+短注释”的方式，让正文保持连贯，同时不牺牲信息密度。</p>
+        </div>
+
+        <div class="quote-block">
+            延伸阅读不是堆砌链接，而是为读者提供可验证的上下文。一个好的引用提示能让查询动作减少一半，同时保持对原始数据的敬畏。
+        </div>
+
+        <div class="insight-grid">
+            <div class="insight-card">
+                <h3>⚡ 即时对照</h3>
+                <p>比赛进行中可快速查看两队核心数据对比，无需离开当前页面。</p>
+            </div>
+            <div class="insight-card">
+                <h3>📊 趋势标记</h3>
+                <p>用色块和方向符表示近五场状态，一眼识别连胜或波动周期。</p>
+            </div>
+            <div class="insight-card">
+                <h3>🔗 延伸节点</h3>
+                <p>每项数据旁附带简要来源或关联阅读，减少重复搜索成本。</p>
+            </div>
+        </div>
+
+        <div class="faq-mini">
+            <h3 style="margin-bottom: 0.2rem; font-size: 1rem; color: #3f3625;">常见查询摘要</h3>
+            <details>
+                <summary>如何快速获取某球员赛季平均数据？</summary>
+                <div class="answer">在数据汇总卡片中按球队筛选，或直接搜索球员姓名。通常平台会提供“赛季/季后赛/最近十场”切换标签，便于对照不同阶段表现。</div>
+            </details>
+            <details>
+                <summary>同一页面能否同时显示两支球队的详细统计？</summary>
+                <div class="answer">可以。利用并排对照布局或折叠面板，将两支队伍的核心指标（篮板、助攻、失误、命中率）并列展示，减少前后滚动。</div>
+            </details>
+            <details>
+                <summary>延伸阅读链接一般指向什么内容？</summary>
+                <div class="answer">指向深度分析、赛后战报、历史交锋记录或球员专访。选择与当前数据直接相关的上下文，而不是泛泛的首页链接。</div>
+            </details>
+        </div>
+
+        <div class="access-note">
+            <span>📎 如需进一步展开数据背景或查阅完整赛季档案，可借助</span>
+            <a href="https://milano-sports.com" class="link-button">米兰体育app</a>
+            <span>进入结构化信息流。页面内所有示例均基于公开赛事数据，仅作方法展示。</span>
+        </div>
+
+        <div class="footer-meta">
+            <span>内容参考 · 信息密度优先</span>
+            <span class="dot-divider">·</span>
+            <span>2025 · 概念展示</span>
+        </div>
+    </div>
+</body>
+</html>

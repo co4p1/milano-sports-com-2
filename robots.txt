@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://co4p1.github.io/milano-sports-com-2/sitemap.xml
